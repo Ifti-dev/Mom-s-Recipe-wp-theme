@@ -107,16 +107,16 @@ body{
 }
 
 /* header and nav */
-/* header{
+header{
     width: 100%;
     display: flex;
     justify-content: center;
     
     background-color: #b55d51;
     color: white;
-} */
-/* .header-wrapper{
-    padding-right: 1rem;
+}
+.header-wrapper{
+    /* padding-right: 1rem; */
     
     display: flex;
     align-items: center;
@@ -161,7 +161,20 @@ body{
 .login-regiser-btn{
     display: flex;
     align-items: center;
-} */
+}
+
+.top-logo-header{
+
+    width: 100%;
+    flex-direction: column;
+    max-width: 100%;
+    padding: 0;
+}
+.top-logo-header-menu{
+    padding: 20px 0px;
+    background-color: black;
+}
+
 
 /* footer */
 /* footer{
@@ -259,7 +272,7 @@ footer label{
 /* Mobile */
 @media screen and (max-width: 900px) {
     /* For header */
-    /* .header-wrapper{
+    .header-wrapper{
         justify-content: space-between;
        
         z-index: 101;
@@ -303,7 +316,7 @@ footer label{
     }
     .login-regiser-head-btn-active{
         padding: 10px 10px;
-    } */
+    }
     
 
     /* For footer */

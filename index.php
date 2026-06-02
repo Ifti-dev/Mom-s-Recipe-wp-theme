@@ -17,25 +17,23 @@
 <body <?php body_class(); ?>>
     <header>
         <div class="header-wrapper wrapper-main">
-    <div class="logo-container"><a href="http://localhost/Mom-s-Recipe-PHP/"><?php echo get_theme_mod('head_section_setting') ?></a></div>
-    <nav class="header-nav">
-        <ul>
-            <li><a href="http://localhost/Mom-s-Recipe-PHP/">Home</a></li> 
-            <li><a href="recipe.php">Recipies</a></li> 
-            <li><a href="about-us.php">About us</a></li> 
-        </ul>
-    </nav>
-    <div class="login-regiser-btn">
-        <a href="login.html" id="login-regiser-head-btn">
-            <span class="main-menu-log-icon">Login</span>
-            <i class="fa-solid fa-user main-menu-user-icon" title="Dashboard"></i>
-        </a>
-        <div class="main-menu">
-            <i class="fa-solid fa-bars"></i>
+            <div class="logo-container"><a href="http://localhost/Mom-s-Recipe-PHP/"><?php echo esc_html(get_theme_mod('head_section_setting')) ?></a></div>
+            <nav class="header-nav">
+                <?php wp_nav_menu(array(
+                    'theme_location' => 'main_menu',
+
+                )) ?>
+            </nav>
+            <!-- <div class="login-regiser-btn">
+                <a href="login.html" id="login-regiser-head-btn">
+                    <span class="main-menu-log-icon">Login</span>
+                    <i class="fa-solid fa-user main-menu-user-icon" title="Dashboard"></i>
+                </a>
+                <div class="main-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div> -->
         </div>
-    </div>
-    
-</div>
     </header>
     <main class="main-without-sidebar">
         <!-- home hero section -->
@@ -47,7 +45,7 @@
                     <a href="login.html" class="home-sign-up">Sign up</a>
                 </div>
                 <div class="hero-right">
-                    <img src="<?php echo get_theme_mod('head_section_img_setting') ?>" alt="https://www.freepik.com/free-psd/delicious-chicken-biryani-bowl_407747101.htm#fromView=keyword&page=1&position=0&uuid=6bd64a88-dbbf-44a1-9a68-c7b581f9a7e8&query=Biryani+png">
+                    <img src="<?php echo esc_url(get_theme_mod('head_section_img_setting')) ?>" alt="https://www.freepik.com/free-psd/delicious-chicken-biryani-bowl_407747101.htm#fromView=keyword&page=1&position=0&uuid=6bd64a88-dbbf-44a1-9a68-c7b581f9a7e8&query=Biryani+png">
                 </div>
             </div>
         </section>
