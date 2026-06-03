@@ -132,7 +132,7 @@ header{
     color: white;
 }
 .header-nav{
-    width: 100%;
+    width: 100%;/*its making the menu take all the free space and pushing the logo and btn to the each end */
 }
 .header-nav ul{
     display: flex;
@@ -163,13 +163,6 @@ header{
     align-items: center;
 }
 
-.top-logo-header{
-
-    width: 100%;
-    flex-direction: column;
-    max-width: 100%;
-    padding: 0;
-}
 .top-logo-header-menu{
     padding: 20px 0px;
     background-color: black;

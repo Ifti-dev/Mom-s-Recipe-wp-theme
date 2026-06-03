@@ -17,11 +17,11 @@
 <body <?php body_class(); ?>>
     <header>
         <div class="header-wrapper wrapper-main">
-            <div class="logo-container"><a href="http://localhost/Mom-s-Recipe-PHP/"><?php echo esc_html(get_theme_mod('head_section_setting')) ?></a></div>
+            <div class="logo-container"><a href="http://localhost/Mom-s-Recipe-PHP/"><?php echo esc_html(get_theme_mod('head_web_name_setting')) ?></a></div>
             <nav class="header-nav">
                 <?php wp_nav_menu(array(
                     'theme_location' => 'main_menu',
-
+                    'menu_id' => 'header_menu'
                 )) ?>
             </nav>
             <!-- <div class="login-regiser-btn">
