@@ -59,13 +59,37 @@ function  ifti_css_js_file_calling(){
     //for menu height (Active if menu_pos is set to -> center_menu)
     $menu_height = get_theme_mod('head_menu_height_setting') . 'px';
     $logo_height = get_theme_mod('head_logo_height_setting') . 'px';
+    $logo_bg_color = get_theme_mod('head_logo_color_setting');
+    $menu_bg_color = get_theme_mod('head_menu_color_setting');
     $menu_css = "
-        #header_menu{
-            height: $menu_height ;
-        }
+        
+       
         .logo-container {
             height: $logo_height ;
-        }";
+            width:100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color: $logo_bg_color;
+        }
+        .logo-wrapper{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            max-width:1160px;
+            width:100%;
+            height:100%;
+        }
+
+        .header-nav{
+            background-color: $menu_bg_color;
+        } 
+        #header_menu{
+            height: $menu_height ;
+            max-width:1160px ;
+            width:100%;
+        } 
+        ";
     //so that the menu height stays default if !center_menu(bug-fix)
     if($menu_postion == "center_menu") 
         wp_add_inline_style('index-style', $menu_css);
@@ -129,33 +153,7 @@ function ifti_customizer_setting_calling($wp_customize){
         )
     ));
 
-    //Adding a new settings for menu pos -> menu height
-    $wp_customize->add_setting('head_menu_height_setting', array(
-        'default' => 40,
-        'sanitize_callback' => function ($input){
-            $input = absint($input);
-
-            if($input < 40)
-               return 40;
-            else
-                return $input;
-        }
-    ));
-
-    //Giving control to the user to change menu pos -> menu height
-    $wp_customize->add_control('head_menu_height_control', array(
-        'label' => 'Menu Height',
-        'section' => 'head_section',
-        'settings' => 'head_menu_height_setting',
-        'type' => 'number',
-        'active_callback' => function ($control){ // based on this trigger it will be active
-            return 'center_menu' === $control-> manager-> get_setting('head_menu_pos_setting') -> value();
-        },
-        'input_attrs' => array(
-            'min' => 40, //its works only for arrow clicking so add the condition in add_setting
-            'step' => 2 //how much to inc or dec when click up/down arrow
-        ),
-    ));
+    
     //Adding a new settings for menu pos -> logo height
     $wp_customize->add_setting('head_logo_height_setting', array(
         'default' => 40,
@@ -183,6 +181,67 @@ function ifti_customizer_setting_calling($wp_customize){
             'step' => 2 
         ),
     ));
+
+    //Adding a new settings for menu pos -> logo container color
+    $wp_customize->add_setting('head_logo_color_setting', array(
+        'default' => '#b55d51',
+    ));
+
+    //Giving control to the user to change menu pos -> logo container color
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'head_logo_color_control', array(
+        'label' => 'Logo Background color',
+        'section' => 'head_section',
+        'settings' => 'head_logo_color_setting',
+        'active_callback' => function ($control){ // based on this trigger it will be active
+            return 'center_menu' === $control-> manager-> get_setting('head_menu_pos_setting') -> value();
+        }
+    )));
+
+
+
+    //Adding a new settings for menu pos -> menu height
+    $wp_customize->add_setting('head_menu_height_setting', array(
+        'default' => 40,
+        'sanitize_callback' => function ($input){
+            $input = absint($input);
+
+            if($input < 40)
+               return 40;
+            else
+                return $input;
+        }
+    ));
+
+    //Giving control to the user to change menu pos -> menu height
+    $wp_customize->add_control('head_menu_height_control', array(
+        'label' => 'Menu Height',
+        'section' => 'head_section',
+        'settings' => 'head_menu_height_setting',
+        'type' => 'number',
+        'active_callback' => function ($control){ // based on this trigger it will be active
+            return 'center_menu' === $control-> manager-> get_setting('head_menu_pos_setting') -> value();
+        },
+        'input_attrs' => array(
+            'min' => 40, //its works only for arrow clicking so add the condition in add_setting
+            'step' => 2 //how much to inc or dec when click up/down arrow
+        ),
+    ));
+
+    //Adding a new settings for menu pos -> menu container color
+    $wp_customize->add_setting('head_menu_color_setting', array(
+        'default' => '#b55d51',
+    ));
+
+    //Giving control to the user to change menu pos -> menu container color
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize,'head_menu_color_control', array(
+        'label' => 'Menu Background color',
+        'section' => 'head_section',
+        'settings' => 'head_menu_color_setting',
+        'active_callback' => function ($control){ // based on this trigger it will be active
+            return 'center_menu' === $control-> manager-> get_setting('head_menu_pos_setting') -> value();
+        }
+    )));
+
 }
 add_action('customize_register','ifti_customizer_setting_calling');
 
