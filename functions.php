@@ -100,9 +100,12 @@ add_action('wp_enqueue_scripts','ifti_css_js_file_calling');// hook , strings
 
 //WP customizer dashboard
 function ifti_customizer_setting_calling($wp_customize){
+    //
+    // Header section //
+    //
     //Creating a new section in custimizer dashboard
     $wp_customize->add_section('head_section', array(
-        'title' => __('Header Area','iftidev')
+        'title' => __('Header Section','iftidev')
     ));
 
 
@@ -242,6 +245,23 @@ function ifti_customizer_setting_calling($wp_customize){
         }
     )));
 
+    //
+    // Footer section //
+    //
+
+    $wp_customize->add_section('footer_section', array(
+        'title' => 'Footer Section'
+    ));
+    $year = date('y');
+    $wp_customize->add_setting('footer_setting', array(
+        'default' => "Copyright <i class='fa-regular fa-copyright'></i> $year Moms Recipe| Developed by <a href='https://linktr.ee/iftidev'>Mohammed Iftekhar</a>"
+    ));
+    $wp_customize->add_control('footer_control', array(
+        'label' => 'Copyright Text',
+        'settings' => 'footer_setting',
+        'section' => 'footer_section',
+        'type' => 'text'
+    ));
 }
 add_action('customize_register','ifti_customizer_setting_calling');
 

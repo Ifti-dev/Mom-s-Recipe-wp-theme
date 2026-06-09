@@ -202,7 +202,7 @@ header{
 
 
 /* footer */
-/* footer{
+footer{
     background-color: #212121;
     color: #ffffff;
 }
@@ -292,7 +292,7 @@ footer label{
 }
 .main-menu-user-icon{
     color: white;
-} */
+}
 
 /* Mobile */
 @media screen and (max-width: 900px) {
