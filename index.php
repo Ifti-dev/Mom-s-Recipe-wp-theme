@@ -91,7 +91,16 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p><?php echo get_theme_mod('footer_setting'); ?></p>
+                <?php 
+                    $copyright_text = get_theme_mod('footer_setting');
+                    $shortkey_replacements = array(
+                        '[year]' => date('Y'),
+                        "[copyright]" => "<i class='fa-regular fa-copyright'></i>"
+                    );
+
+                    $copyright_text_updated = str_replace(array_keys($shortkey_replacements), array_values($shortkey_replacements), $copyright_text);
+                ?>
+                <p><?php echo $copyright_text_updated; ?></p>
             </div>
             
         </div>

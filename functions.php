@@ -254,13 +254,14 @@ function ifti_customizer_setting_calling($wp_customize){
     ));
     $year = date('y');
     $wp_customize->add_setting('footer_setting', array(
-        'default' => "Copyright <i class='fa-regular fa-copyright'></i> $year Moms Recipe| Developed by <a href='https://linktr.ee/iftidev'>Mohammed Iftekhar</a>"
+        'default' => "Copyright [year] Moms Recipe| Developed by <a href='https://linktr.ee/iftidev'>Mohammed Iftekhar</a>"
     ));
     $wp_customize->add_control('footer_control', array(
         'label' => 'Copyright Text',
         'settings' => 'footer_setting',
         'section' => 'footer_section',
-        'type' => 'text'
+        'type' => 'text',
+        'description' => 'Short codes [copyright], [year]'
     ));
 }
 add_action('customize_register','ifti_customizer_setting_calling');
