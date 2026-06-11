@@ -207,7 +207,7 @@ footer{
     color: #ffffff;
 }
 
-footer ul{
+.footer-nav ul{
     display: flex;
     flex-direction: column;
     gap: 10px;
