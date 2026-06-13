@@ -19,6 +19,33 @@
             <h2 class="page-title">Latest Recipes</h2>
             <div class="recipe-card-container">
                 <!-- all recipe card goes here using js by collecting data from localstorage -->
+                <?php
+                    if(have_posts()):
+                        while(have_posts()): the_post();
+                ?>
+                    <div class="recipe_card">
+                        <div class="recipe-card">
+                            <div class="recipe-card-img-container">
+                               
+                                <a href="<?php the_permalink() ?>"> <?php the_post_thumbnail() ?></a>
+                                <?php //the_content() ?>
+                                <?php the_excerpt() ?>
+                            </div>
+                            <div class="recipe-card-body">
+                                <h3><a href="<?php the_permalink() ?>"><?php the_title();?></a></h3>
+                                <div class="recipe-card-user">
+                                    <div class="recipe-card-user-img-cont">
+                                        <!-- user img -->
+                                    </div>
+                                    <p class="recipe-card-user-fullname">
+                                        <?php the_author(); ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                            
+                    </div>
+                <?php endwhile; endif;  ?>
             </div>
         </section>
     </main>

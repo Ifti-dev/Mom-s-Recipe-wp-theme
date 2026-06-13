@@ -6,8 +6,11 @@
 //css add-> wp_enqueue_style , js add-> wp_enqueue_script
 */
 
-//Theme Title 
+//Theme Title on the boswer tab ie title
 add_theme_support('title-tag');
+
+//Adding thumbnail addig option
+add_theme_support('post-thumbnails', array('page','post'));
 
 //All the scripts css,js
 include_once("inc/enqueue.php");
