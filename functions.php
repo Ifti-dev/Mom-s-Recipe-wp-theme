@@ -9,9 +9,14 @@
 //Theme Title on the boswer tab ie title
 add_theme_support('title-tag');
 
-//Adding thumbnail addig option
+//Adding thumbnail addig option on diff. post types
 add_theme_support('post-thumbnails', array('page','post'));
+add_image_size("post-card-thumbnail", 270, 270, true);
 
+function post_excert_length(){
+    return 20;
+}
+add_filter("excerpt_length", "post_excert_length", 999);
 //All the scripts css,js
 include_once("inc/enqueue.php");
 

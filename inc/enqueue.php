@@ -6,6 +6,7 @@ function  ifti_css_js_file_calling(){
   
     //css
     wp_enqueue_style('index-style', get_theme_file_uri('css/index.css'),array(),'1.0.0','all');
+    wp_enqueue_style('archive-style', get_theme_file_uri('css/recipe-archive.css'),array(),'1.0.0','all');
 
     //js
     wp_enqueue_script('test-js', get_theme_file_uri('js/test.js'),array(), '1.0.0', true);

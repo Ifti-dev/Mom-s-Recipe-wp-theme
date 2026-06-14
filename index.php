@@ -26,19 +26,19 @@
                     <div class="recipe_card">
                         <div class="recipe-card">
                             <div class="recipe-card-img-container">
-                               
-                                <a href="<?php the_permalink() ?>"> <?php the_post_thumbnail() ?></a>
-                                <?php //the_content() ?>
-                                <?php the_excerpt() ?>
+                                <a href="<?php the_permalink() ?>"> <?php the_post_thumbnail("post-card-thumbnail") ?></a>
                             </div>
                             <div class="recipe-card-body">
                                 <h3><a href="<?php the_permalink() ?>"><?php the_title();?></a></h3>
+                                <p><?php //the_content() ?>
+                                <?php the_excerpt() ?></p>
                                 <div class="recipe-card-user">
                                     <div class="recipe-card-user-img-cont">
                                         <!-- user img -->
+                                         <?php echo get_avatar(get_the_author_meta("ID"),100)?>
                                     </div>
                                     <p class="recipe-card-user-fullname">
-                                        <?php the_author(); ?>
+                                        <?php the_author_link() ?>
                                     </p>
                                 </div>
                             </div>
