@@ -174,5 +174,35 @@ function ifti_customizer_setting_calling($wp_customize){
         'type' => 'text',
         'description' => 'Short codes [copyright], [year]'
     ));
+    
+    
+    //
+    // Blog cards //
+    //
+
+    $wp_customize->add_section('archive_post_card_section', array(
+        'title' => "Blog Posts"
+    ));
+
+
+    $wp_customize->add_setting('archive_post_excerpt_setting', array(
+        'default' => 20
+    ));
+    $wp_customize->add_control('archive_post_excerpt_control', array(
+        'label' => 'Post Excerpt',
+        'section' => 'archive_post_excerpt_section',
+        'settings' => 'archive_post_excerpt_setting',
+        'type' => 'number',
+    ));
+   
+    $wp_customize->add_setting('archive_post_excerpt_setting', array(
+        'default' => 20
+    ));
+    $wp_customize->add_control('archive_post_card_control', array(
+        'label' => 'Post Excerpt',
+        'section' => 'archive_post_card_section',
+        'settings' => 'archive_post_card_setting',
+        'type' => 'number',
+    ));
 }
 add_action('customize_register','ifti_customizer_setting_calling');
