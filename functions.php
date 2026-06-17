@@ -27,17 +27,3 @@ register_nav_menus(array(
 
 
 
-function post_excert_length(){
-    $excerpt_length = get_theme_mod('archive_post_excerpt_setting');
-    return $excerpt_length;
-}
-add_filter("excerpt_length", "post_excert_length", 999);
-
-function post_excerpt_more(){
-    global $post;
-    return '<a href="'. get_permalink($post->ID) . '">' . 'Read More' . '</a>';
-}
-add_filter('excerpt_more', 'post_excerpt_more');
-
-
-

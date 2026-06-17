@@ -163,7 +163,6 @@ function ifti_customizer_setting_calling($wp_customize){
     $wp_customize->add_section('footer_section', array(
         'title' => 'Footer Section'
     ));
-    $year = date('y');
     $wp_customize->add_setting('footer_setting', array(
         'default' => "Copyright [year] Moms Recipe| Developed by <a href='https://linktr.ee/iftidev'>Mohammed Iftekhar</a>"
     ));
@@ -177,32 +176,49 @@ function ifti_customizer_setting_calling($wp_customize){
     
     
     //
-    // Blog cards //
+    // Blog posts //
     //
 
-    $wp_customize->add_section('archive_post_card_section', array(
+    $wp_customize->add_section('post_section', array(
         'title' => "Blog Posts"
     ));
 
 
-    $wp_customize->add_setting('archive_post_excerpt_setting', array(
+    $wp_customize->add_setting('post_excerpt_length_setting', array(
         'default' => 20
     ));
-    $wp_customize->add_control('archive_post_excerpt_control', array(
+    $wp_customize->add_control('post_excerpt_length_control', array(
         'label' => 'Post Excerpt',
-        'section' => 'archive_post_excerpt_section',
-        'settings' => 'archive_post_excerpt_setting',
+        'section' => 'post_section',
+        'settings' => 'post_excerpt_length_setting',
         'type' => 'number',
+    ));
+
+
+    $wp_customize->add_setting('post_excerpt_more_setting', array(
+        'default' => 'Read More'
+    ));
+    $wp_customize->add_control('post_excerpt_more_control', array(
+        'label' => 'Post Excerpt More Text',
+        'section' => 'post_section',
+        'settings' => 'post_excerpt_more_setting',
+        'type' => 'text',
     ));
    
-    $wp_customize->add_setting('archive_post_excerpt_setting', array(
-        'default' => 20
-    ));
-    $wp_customize->add_control('archive_post_card_control', array(
-        'label' => 'Post Excerpt',
-        'section' => 'archive_post_card_section',
-        'settings' => 'archive_post_card_setting',
-        'type' => 'number',
-    ));
 }
 add_action('customize_register','ifti_customizer_setting_calling');
+
+
+// Blog posts modifying functionality according to customization
+function post_excerpt_length(){
+    $excerpt_length = get_theme_mod('post_excerpt_length_setting');
+    return $excerpt_length;
+}
+add_filter("excerpt_length", "post_excerpt_length", 999);
+
+function post_excerpt_more(){
+    global $post;
+    $excerpt_more_text = get_theme_mod('post_excerpt_more_setting');
+    return '<a href="'. get_permalink($post->ID) . '">' . $excerpt_more_text . '</a>';
+}
+add_filter('excerpt_more', 'post_excerpt_more');
