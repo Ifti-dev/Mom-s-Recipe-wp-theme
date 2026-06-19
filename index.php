@@ -23,7 +23,7 @@
                     if(have_posts()):
                         while(have_posts()): the_post();
                 ?>
-                    <div class="recipe_card">
+                
                         <div class="recipe-card">
                             <div class="recipe-card-img-container">
                                 <a href="<?php the_permalink() ?>"> <?php the_post_thumbnail("post-card-thumbnail") ?></a>
@@ -42,9 +42,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </div>
-                            
-                    </div>
+                        </div>         
                 <?php endwhile; endif;  ?>
             </div>
         </section>

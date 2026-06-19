@@ -204,6 +204,24 @@ function ifti_customizer_setting_calling($wp_customize){
         'settings' => 'post_excerpt_more_setting',
         'type' => 'text',
     ));
+
+    
+    $wp_customize->add_setting('post_card_layout_setting', array(
+        'default' => 'vertical',
+        'sanitize_callback' => 'sanitize_text_field'
+    ));
+
+    //Giving control to the user to change menu pos
+    $wp_customize->add_control('post_card_layout_setting', array(
+        'label' => 'Post Card Layout',
+        'section' => 'post_section',
+        'settings' => 'post_card_layout_setting',
+        'type' => 'select',
+        'choices' => array(
+            "vertical" => "Vertical",
+            "horizontal" => "Horizontal",
+        )
+    ));
    
 }
 add_action('customize_register','ifti_customizer_setting_calling');

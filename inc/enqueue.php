@@ -77,5 +77,19 @@ function  ifti_css_js_file_calling(){
     if($menu_postion == "center_menu") 
         wp_add_inline_style('index-style', $menu_css);
 
+    //adding css based on post card alignment
+    $post_card_css = '
+    .recipe-card{
+            flex-direction: row;
+    }
+    .recipe-card-container{
+        grid-template-column: 1fr;
+    }
+    ';
+    if(get_theme_mod('post_card_layout_setting') == 'horizontal')
+        wp_add_inline_style('../css/recipe-archive.css',$post_card_css);
+
+
+
 }
 add_action('wp_enqueue_scripts','ifti_css_js_file_calling');// hook , strings
