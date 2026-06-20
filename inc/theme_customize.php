@@ -212,7 +212,7 @@ function ifti_customizer_setting_calling($wp_customize){
     ));
 
     //Giving control to the user to change menu pos
-    $wp_customize->add_control('post_card_layout_setting', array(
+    $wp_customize->add_control('post_card_layout_control', array(
         'label' => 'Post Card Layout',
         'section' => 'post_section',
         'settings' => 'post_card_layout_setting',
@@ -221,6 +221,44 @@ function ifti_customizer_setting_calling($wp_customize){
             "vertical" => "Vertical",
             "horizontal" => "Horizontal",
         )
+    ));
+
+    $wp_customize->add_setting('post_cards_per_row_setting', array(
+        'default' => 3,
+        'sanitize_callback' => function($input){
+            $input = abs($input);
+            if($input<1)
+                $input = 1;
+            else
+                return $input;
+        }
+    ));
+
+    //Giving control to the user to change menu pos
+    $wp_customize->add_control('post_cards_per_row_control', array(
+        'label' => 'Post Card Per Row',
+        'section' => 'post_section',
+        'settings' => 'post_cards_per_row_setting',
+        'type' => 'number',
+    ));
+
+    $wp_customize->add_setting('post_cards_row_gap_setting', array(
+        'default' => 20,
+        'sanitize_callback' => function($input){
+            $input = abs($input);
+            if($input<1)
+                $input = 1;
+            else
+                return $input;
+        }
+    ));
+
+    //Giving control to the user to change menu pos
+    $wp_customize->add_control('post_cards_row_gap_control', array(
+        'label' => 'Post Card Row Gap',
+        'section' => 'post_section',
+        'settings' => 'post_cards_row_gap_setting',
+        'type' => 'number',
     ));
    
 }

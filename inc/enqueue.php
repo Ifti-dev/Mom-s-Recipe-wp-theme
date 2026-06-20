@@ -82,14 +82,23 @@ function  ifti_css_js_file_calling(){
     .recipe-card{
             flex-direction: row;
     }
-    .recipe-card-container{
-        grid-template-column: 1fr;
-    }
+   
     ';
     if(get_theme_mod('post_card_layout_setting') == 'horizontal')
-        wp_add_inline_style('../css/recipe-archive.css',$post_card_css);
+        wp_add_inline_style('archive-style',$post_card_css);
 
-
+    //adding css based on post card number per row
+    $post_card_num_per_row = get_theme_mod('post_cards_per_row_setting');
+    $post_card_row_gap = get_theme_mod('post_cards_row_gap_setting');
+    $post_card_css = "
+    
+    .recipe-card-container{
+        grid-template-columns:  repeat($post_card_num_per_row, 1fr);
+        gap: $post_card_row_gap" . "px;
+    }
+    ";
+    
+    wp_add_inline_style('archive-style',$post_card_css);
 
 }
 add_action('wp_enqueue_scripts','ifti_css_js_file_calling');// hook , strings
