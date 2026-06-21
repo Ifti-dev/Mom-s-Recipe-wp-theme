@@ -260,6 +260,25 @@ function ifti_customizer_setting_calling($wp_customize){
         'settings' => 'post_cards_row_gap_setting',
         'type' => 'number',
     ));
+
+    $wp_customize->add_setting('post_cards_radius_setting', array(
+        'default' => 10,
+        'sanitize_callback' => function($input){
+            $input = abs($input);
+            if($input<1)
+                $input = 1;
+            else
+                return $input;
+        }
+    ));
+
+    //Giving control to the user to change menu pos
+    $wp_customize->add_control('post_cards_radius_control', array(
+        'label' => 'Post Card Radius',
+        'section' => 'post_section',
+        'settings' => 'post_cards_radius_setting',
+        'type' => 'number',
+    ));
    
 }
 add_action('customize_register','ifti_customizer_setting_calling');

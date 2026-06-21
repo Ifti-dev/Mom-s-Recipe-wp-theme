@@ -90,11 +90,15 @@ function  ifti_css_js_file_calling(){
     //adding css based on post card number per row
     $post_card_num_per_row = get_theme_mod('post_cards_per_row_setting');
     $post_card_row_gap = get_theme_mod('post_cards_row_gap_setting');
+    $post_card_radius = get_theme_mod('post_cards_radius_setting');
     $post_card_css = "
     
     .recipe-card-container{
         grid-template-columns:  repeat($post_card_num_per_row, 1fr);
         gap: $post_card_row_gap" . "px;
+    }
+    .recipe-card{
+        border-radius:$post_card_radius" . "px;
     }
     ";
     
