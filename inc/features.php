@@ -7,8 +7,8 @@ function ifti_page_nav(){
     $current = get_query_var('paged')? get_query_var('paged'):1;
     $max = $wp_query -> max_num_pages;
 
-    if($max <= 1)
-        return;
+    // if($max <= 1)
+    //     return;
     $args = array(
         "base" => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
         'total' => $max,
@@ -19,7 +19,9 @@ function ifti_page_nav(){
     );
 
     echo "<div class='wp_pagenav'>";
+    echo "<p class='pagnav-num'>" . $current . " of " . $max . " pages" . "<br></p>";
     echo paginate_links( $args );
     echo "</div>";
+    
 }
 
