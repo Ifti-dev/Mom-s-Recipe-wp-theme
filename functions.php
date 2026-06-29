@@ -23,6 +23,10 @@ include_once("inc/theme_customize.php");
 //page navigation/paginaion
 include_once("inc/features.php");
 
+//page widgets
+include_once("inc/widget.php");
+
+
 register_nav_menus(array(
     'main_menu'=> __('Main Menu', 'iftidev'),
     'footer_menu' => __('Footer Menu', 'iftidev')

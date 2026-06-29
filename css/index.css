@@ -1,5 +1,7 @@
 
-
+/*===============
+Home hero section
+=================*/
 .main-without-sidebar{
     margin-top: 0;
 }
@@ -69,6 +71,31 @@
     justify-content: center;
 }
 
+/*==========
+Home sidebar
+============*/
+.home_with_sidebar {
+    display: flex;
+    flex-direction: column;
+}
+.home-content{
+    display: flex;
+    gap: 20px;
+}
+.recipe-card-parent-container{
+    width: 70%;
+}
+.home-sidebar{
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+/*============
+Responsiveness
+==============*/
 @media screen and (max-width:900px){
     .hero-left, .hero-right{
         max-width: 100%;
