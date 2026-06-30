@@ -157,7 +157,7 @@ function ifti_customizer_setting_calling($wp_customize){
     )));
 
     //
-    // Footer section //
+    // Footer bottom section //
     //
 
     $wp_customize->add_section('footer_section', array(
@@ -253,7 +253,7 @@ function ifti_customizer_setting_calling($wp_customize){
         }
     ));
 
-    //Giving control to the user to change menu pos
+    //Giving control to the user to change card row gap
     $wp_customize->add_control('post_cards_row_gap_control', array(
         'label' => 'Post Card Row Gap',
         'section' => 'post_section',
@@ -272,13 +272,17 @@ function ifti_customizer_setting_calling($wp_customize){
         }
     ));
 
-    //Giving control to the user to change menu pos
+    //Giving control to the user to change card radius
     $wp_customize->add_control('post_cards_radius_control', array(
         'label' => 'Post Card Radius',
         'section' => 'post_section',
         'settings' => 'post_cards_radius_setting',
         'type' => 'number',
     ));
+
+    /*
+        sidebar activation option
+    */
    
 }
 add_action('customize_register','ifti_customizer_setting_calling');

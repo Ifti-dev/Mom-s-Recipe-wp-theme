@@ -2,7 +2,7 @@
 //Theme css and js file calling
 function  ifti_css_js_file_calling(){
     //style.css
-    wp_enqueue_style( 'ifti-style', get_stylesheet_uri());
+    wp_enqueue_style( 'ifti-style', get_stylesheet_uri(),array(), filemtime(get_theme_file_path('style.css')));
   
     //css
     //filemtime()  gives us the latest updated file thats location is specified

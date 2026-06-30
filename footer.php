@@ -2,24 +2,36 @@
         <div class="footer-wrapper wrapper-main">
             <div class="footer-top">
                 <div class="footer-column-1 footer-top-column">
+                    <?php if(is_active_sidebar('footer-column-1')){
+                            dynamic_sidebar('footer-column-1');
+                    } else{?>
                     <div class="footer-logo-container">
                         Moms Recipe
                     </div>
                     <div class="footer-web-info">
                         <p>Moms recipe is a platform where moms can upload their recipe, so that other people can follow it and cook their own.</p>
                     </div>
+                    <?php } ?>
                 </div>
+                
                 <div class="footer-column-2 footer-top-column">
+                    <?php if(is_active_sidebar('footer-column-2')){
+                            dynamic_sidebar('footer-column-2');
+                    } else{?>
                     <h3>Useful Links</h3>
                     <nav class="footer-nav">
-                        <ul>
-                            <li><a href="http://localhost/Mom-s-Recipe-PHP/">Home</a></li> 
-                            <li><a href="recipe.php">Recipies</a></li> 
-                            <li><a href="about-us.php">About us</a></li> 
-                        </ul>
+                        <?php wp_nav_menu(array(
+                            'theme_location' => 'footer_menu',
+                            'container' => false
+                        )); ?>
                     </nav>
+                    <?php } ?>
                 </div>
+
                 <div class="footer-column-3 footer-top-column">
+                    <?php if(is_active_sidebar('footer-column-3')){
+                        dynamic_sidebar('footer-column-3');
+                    } else{?>
                     <h3>Contact Us</h3>
                     <nav class="footer-nav">
                         <ul>
@@ -28,7 +40,28 @@
                             <li><label for="website">Website</label><p><strong>www.momsrecipe.com</strong></p></li>
                         </ul>
                     </nav>
+                    <?php } ?>
                 </div>
+                
+                <?php if(is_active_sidebar('footer-column-4')){ ?>
+                <div class="footer-column-4 footer-top-column">
+                    <?php 
+                        dynamic_sidebar('footer-column-4');
+                     ?>    
+                </div>
+                <?php } ?>
+
+                <?php if(is_active_sidebar('footer-column-5')){ ?>
+                <div class="footer-column-4 footer-top-column">
+                    <?php 
+                        dynamic_sidebar('footer-column-5');
+                     ?>    
+                </div>
+                <?php } ?>
+
+               
+
+                
             </div>
             <div class="footer-bottom">
                 <?php 

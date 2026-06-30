@@ -207,7 +207,7 @@ footer{
     color: #ffffff;
 }
 
-.footer-nav ul{
+.footer-nav ul, .footer-widget-block ul{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -282,7 +282,7 @@ footer label{
     top: 0;
 }
 
-.footer-nav,.footer-web-info{
+.footer-nav,.footer-web-info, .footer-widget-block ul {
     margin-top: 10px;
 }
 
