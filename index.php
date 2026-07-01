@@ -51,7 +51,9 @@
                     <?php ifti_page_nav(); ?>
                 </div>
                 <div class="home-sidebar">
-                    <?php get_sidebar() ?>
+                    <?php
+                        if(is_active_sidebar(get_sidebar()))
+                            get_sidebar() ?>
                 </div>
             </div>
         </section>

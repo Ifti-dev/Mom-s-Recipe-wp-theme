@@ -1,5 +1,7 @@
 <footer>
         <div class="footer-wrapper wrapper-main">
+            
+            <!-- footer top main columns -->
             <div class="footer-top">
                 <div class="footer-column-1 footer-top-column">
                     <?php if(is_active_sidebar('footer-column-1')){
@@ -59,13 +61,19 @@
                 </div>
                 <?php } ?>
 
-               
-
-                
             </div>
+
+            <!-- its for expanding the grid column accroding the number of footer widget column activated -->
+            <script> 
+                const count_footer_column = document.querySelectorAll('.footer-top-column')
+                const footer_top = document.querySelector(".footer-top")
+                footer_top.style.gridTemplateColumns = `repeat(${count_footer_column.length},1fr)`
+
+            </script>
+            <!-- footer bottom copyright section -->
             <div class="footer-bottom">
                 <?php 
-                    $copyright_text = get_theme_mod('footer_setting');
+                    $copyright_text = get_theme_mod('footer_bottom_setting');
                     $shortkey_replacements = array(
                         '[year]' => date('Y'),
                         "[copyright]" => "<i class='fa-regular fa-copyright'></i>"

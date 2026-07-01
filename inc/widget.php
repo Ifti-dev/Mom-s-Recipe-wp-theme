@@ -11,35 +11,35 @@ function ifti_widget(){
         'after_title' => "</div>"
     ));
     register_sidebar(array(
-        'name' => __('footer widget 1', 'iftidev'),
+        'name' => __('Footer widget 1', 'iftidev'),
         'id' => 'footer-column-1',
         'description' => 'This is the footer widgets option',
         'before_widget' => '<div class="footer-widget-block">', //it be the container for each part of the footer element
         'after_widget' => '</div>'
     ));
     register_sidebar(array(
-        'name' => __('footer widget 2', 'iftidev'),
+        'name' => __('Footer widget 2', 'iftidev'),
         'id' => 'footer-column-2',
         'description' => 'This is the footer widgets option',
         'before_widget' => '<div class="footer-widget-block">', //it be the container for each part of the footer element
         'after_widget' => '</div>'
     ));
     register_sidebar(array(
-        'name' => __('footer widget 3', 'iftidev'),
+        'name' => __('Footer widget 3', 'iftidev'),
         'id' => 'footer-column-3',
         'description' => 'This is the footer widgets option',
         'before_widget' => '<div class="footer-widget-block">', //it be the container for each part of the footer element
         'after_widget' => '</div>'
     ));
     register_sidebar(array(
-        'name' => __('footer widget 4', 'iftidev'),
+        'name' => __('Footer widget 4', 'iftidev'),
         'id' => 'footer-column-4',
         'description' => 'This is the footer widgets option',
         'before_widget' => '<div class="footer-widget-block">', //it be the container for each part of the footer element
         'after_widget' => '</div>'
     ));
     register_sidebar(array(
-        'name' => __('footer widget 5', 'iftidev'),
+        'name' => __('Footer widget 5', 'iftidev'),
         'id' => 'footer-column-5',
         'description' => 'This is the footer widgets option',
         'before_widget' => '<div class="footer-widget-block">', //it be the container for each part of the footer element

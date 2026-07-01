@@ -248,10 +248,14 @@ footer label{
     right: 0;
     top: 0;
 }
-.footer-column-1, .footer-column-2, .footer-column-3{
+.footer-top-column{
     padding: 30px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
+
 .footer-column-3 ul{
     list-style-type: none;
     font-size: 18px;
@@ -282,9 +286,6 @@ footer label{
     top: 0;
 }
 
-.footer-nav,.footer-web-info, .footer-widget-block ul {
-    margin-top: 10px;
-}
 
 .main-menu{
     display: none;

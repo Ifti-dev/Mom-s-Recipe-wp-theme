@@ -157,22 +157,57 @@ function ifti_customizer_setting_calling($wp_customize){
     )));
 
     //
-    // Footer bottom section //
+    // Footer section //
     //
-
-    $wp_customize->add_section('footer_section', array(
-        'title' => 'Footer Section'
+    $wp_customize-> add_panel('footer_panel',array(
+        'title' => "Footer",
+        'description' => 'All footer widgets and footer bottom can be edited from here'
     ));
-    $wp_customize->add_setting('footer_setting', array(
+
+    // Footer top section //
+
+    // to get the widget from the widgets use - get_section(sidebar-widgets-enter the sidebar (widget) id).
+    // then set its panel. I mean under which panel it would be added. I will create a new section under that panel with that widget.
+    // so its basically saying get the sidebar widget whose name is ... if exists -> set it as a section under the panel ...
+    if($wp_customize->get_section('sidebar-widgets-footer-column-1')){
+        $wp_customize->get_section('sidebar-widgets-footer-column-1')->panel = 'footer_panel';
+        //$wp_customize->get_section('sidebar-widgets-footer-column-1')->title = "dfgjdfnjdkafn";
+    }
+    if($wp_customize->get_section('sidebar-widgets-footer-column-2')){
+        $wp_customize->get_section('sidebar-widgets-footer-column-2')->panel = 'footer_panel';
+    }
+    if($wp_customize->get_section('sidebar-widgets-footer-column-3')){
+        $wp_customize->get_section('sidebar-widgets-footer-column-3')->panel = 'footer_panel';
+    }
+    if($wp_customize->get_section('sidebar-widgets-footer-column-4')){
+        $wp_customize->get_section('sidebar-widgets-footer-column-4')->panel = 'footer_panel';
+    }
+    if($wp_customize->get_section('sidebar-widgets-footer-column-5')){
+        $wp_customize->get_section('sidebar-widgets-footer-column-5')->panel = 'footer_panel';
+    }
+
+    // Footer bottom section //
+    $wp_customize->add_section('footer_bottom_section', array(
+        'title' => 'Footer Bottom',
+        'panel' => 'footer_panel'
+    ));
+    $wp_customize->add_setting('footer_bottom_setting', array(
         'default' => "Copyright [year] Moms Recipe| Developed by <a href='https://linktr.ee/iftidev'>Mohammed Iftekhar</a>"
     ));
-    $wp_customize->add_control('footer_control', array(
+    $wp_customize->add_control('footer_top_control', array(
         'label' => 'Copyright Text',
-        'settings' => 'footer_setting',
-        'section' => 'footer_section',
+        'settings' => 'footer_bottom_setting',
+        'section' => 'footer_bottom_section',
         'type' => 'text',
         'description' => 'Short codes [copyright], [year]'
     ));
+
+
+
+  if ( $wp_customize->get_control( 'sidebar-widgets-footer-column-1' ) ) {
+    $wp_customize->get_control( 'sidebar-widgets-footer-column-1' )->section  = 'footer_section';
+    $wp_customize->get_control( 'sidebar-widgets-footer-column-1' )->priority = 10;
+}
     
     
     //
