@@ -8,6 +8,7 @@ function  ifti_css_js_file_calling(){
     //filemtime()  gives us the latest updated file thats location is specified
     wp_enqueue_style('index-style', get_theme_file_uri('css/index.css'),array(),filemtime( get_theme_file_path('css/index.css') ),'all'); 
     wp_enqueue_style('archive-style', get_theme_file_uri('css/recipe-archive.css'),array(),filemtime(get_theme_file_path('css/recipe-archive.css')),'all');
+    wp_enqueue_style('single-post-style', get_theme_file_uri('css/single-recipe.css'),array(),filemtime(get_theme_file_path('css/single-recipe.css')),'all');
 
     //js
     wp_enqueue_script('test-js', get_theme_file_uri('js/test.js'),array(), '1.0.0', true);

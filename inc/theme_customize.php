@@ -169,6 +169,7 @@ function ifti_customizer_setting_calling($wp_customize){
     // to get the widget from the widgets use - get_section(sidebar-widgets-enter the sidebar (widget) id).
     // then set its panel. I mean under which panel it would be added. I will create a new section under that panel with that widget.
     // so its basically saying get the sidebar widget whose name is ... if exists -> set it as a section under the panel ...
+    // also they will be removed from widgets section as soon as they are added here
     if($wp_customize->get_section('sidebar-widgets-footer-column-1')){
         $wp_customize->get_section('sidebar-widgets-footer-column-1')->panel = 'footer_panel';
         //$wp_customize->get_section('sidebar-widgets-footer-column-1')->title = "dfgjdfnjdkafn";
