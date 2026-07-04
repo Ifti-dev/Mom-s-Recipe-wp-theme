@@ -1,4 +1,8 @@
+<!-- 
 
+    This page is for all pages (not for blog posts) 
+
+-->
 <?php get_header() ?>
     <main class="main-without-sidebar">    
         <!-- Latest recipe section -->

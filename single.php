@@ -1,3 +1,8 @@
+<!-- 
+
+    This page is for all blog posts (not for pages) 
+
+-->
 
 <?php get_header() ?>
     <div class="main-with-sidebar">

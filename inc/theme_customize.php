@@ -202,14 +202,6 @@ function ifti_customizer_setting_calling($wp_customize){
         'type' => 'text',
         'description' => 'Short codes [copyright], [year]'
     ));
-
-
-
-  if ( $wp_customize->get_control( 'sidebar-widgets-footer-column-1' ) ) {
-    $wp_customize->get_control( 'sidebar-widgets-footer-column-1' )->section  = 'footer_section';
-    $wp_customize->get_control( 'sidebar-widgets-footer-column-1' )->priority = 10;
-}
-    
     
     //
     // Blog posts //
@@ -246,6 +238,17 @@ function ifti_customizer_setting_calling($wp_customize){
         'default' => 'vertical',
         'sanitize_callback' => 'sanitize_text_field'
     ));
+
+    //
+    // Side bar //
+    //
+    $wp_customize->add_panel('sidebar-panel',array(
+        'title' => 'Sidebar',
+        'description' => 'All sidebars can me customized from here'
+    ));
+    if($wp_customize->get_section('sidebar-widgets-sidebar-1')){
+        $wp_customize->get_section('sidebar-widgets-sidebar-1')->panel = 'sidebar-panel';
+    }
 
     //Giving control to the user to change menu pos
     $wp_customize->add_control('post_card_layout_control', array(
