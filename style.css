@@ -287,6 +287,19 @@ footer label{
 }
 
 
+/* ==============
+search page 
+=================*/
+.search-title {
+    padding: 20px;
+    margin-left: 20px;
+    background-color: var(--primary-theme-color);
+    color: white;
+    box-sizing: border-box;
+}
+
+
+
 .main-menu{
     display: none;
     cursor: pointer;
@@ -294,6 +307,36 @@ footer label{
 .main-menu-user-icon{
     color: white;
 }
+
+/* ===========
+Error page
+============== */
+.error-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+}
+.error-page-container h1{
+    font-size: 3rem;
+}
+form#searchform input[type='text'] {
+    padding: 8px;
+    border: solid 1px var(--primary-theme-color);
+}
+input#searchsubmit {
+    padding: 8px;
+    background-color: var(--primary-theme-color);
+    border: solid 1px var(--primary-theme-color);
+    color: var(--secondary-theme-color);
+}
+
+
+
+
 
 /* Mobile */
 @media screen and (max-width: 900px) {
