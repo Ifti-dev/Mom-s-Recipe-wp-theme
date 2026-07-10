@@ -10,7 +10,7 @@
 add_theme_support('title-tag');
 
 //Adding thumbnail addig option on diff. post types
-add_theme_support('post-thumbnails', array('page','post'));
+add_theme_support('post-thumbnails', array('page','post','recipes'));
 add_image_size("post-card-thumbnail", 270, 270, true);
 
 
@@ -25,6 +25,9 @@ include_once("inc/features.php");
 
 //page widgets
 include_once("inc/widget.php");
+
+//Custom post
+include_once("inc/custom_post.php");
 
 
 register_nav_menus(array(

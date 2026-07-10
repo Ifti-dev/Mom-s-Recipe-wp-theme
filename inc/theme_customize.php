@@ -322,7 +322,16 @@ function ifti_customizer_setting_calling($wp_customize){
     /*
         sidebar activation option
     */
-   
+    /*
+        theme color control
+    */
+   $wp_customize -> add_section('theme_color_section', array(
+    'title' => "Colors",
+   ));
+   $wp_customize -> add_setting('theme_color_setting', array(
+    'default' => "#ffffff",
+   ));
+
 }
 add_action('customize_register','ifti_customizer_setting_calling');
 
