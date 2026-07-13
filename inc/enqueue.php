@@ -33,11 +33,8 @@ function  ifti_css_js_file_calling(){
             padding: 0;
         }";
     }
-    else{
-
-    }
-
-    wp_add_inline_style('index-style', $menu_postion_css);
+    if(!empty($menu_postion_css))
+        wp_add_inline_style('index-style', $menu_postion_css);
     //'in which css file you wanna include the css' , 'style value'
 
 

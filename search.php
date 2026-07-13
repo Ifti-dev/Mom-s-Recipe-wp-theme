@@ -1,6 +1,6 @@
 
 <!-- 
-    This page is for archive pages
+    This page is for search result in card view
 -->
     
 <?php get_header() ?>

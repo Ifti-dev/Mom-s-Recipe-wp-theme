@@ -1,11 +1,13 @@
 <?php
 
-function ifti_page_nav(){
+function ifti_page_nav($custom_query = null){
     //wp navigation pagination
-    global $wp_query;//it returnes all pages but if not arg added it returns all posts
+    global $wp_query;//it returnes all archive and blog posts but if not arg added it returns all posts
+    //wont work for custom query for custom post types, for custom query follow below
+    $query_to_use = ($custom_query!=null)?$custom_query:$wp_query;
 
     $current = get_query_var('paged')? get_query_var('paged'):1;
-    $max = $wp_query -> max_num_pages;
+    $max = $query_to_use -> max_num_pages;
 
     if($max <= 1)
         return;
