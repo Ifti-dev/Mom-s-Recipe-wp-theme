@@ -29,6 +29,9 @@ include_once("inc/widget.php");
 //Custom post
 include_once("inc/custom_post.php");
 
+//Shortcode
+include_once("inc/shortcodes.php");
+
 
 register_nav_menus(array(
     'main_menu'=> __('Main Menu', 'iftidev'),
