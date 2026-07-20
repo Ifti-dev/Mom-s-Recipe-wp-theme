@@ -50,9 +50,9 @@
                     </div>
                     <?php ifti_page_nav($recipe_query); ?>
                 </div>
-                <div class="home-sidebar">
+                <!-- <div class="home-sidebar">
                     <?php
-                        if(is_active_sidebar(get_sidebar()))
-                            get_sidebar() ?>
-                </div>
+                        // if(is_active_sidebar(get_sidebar()))
+                            // get_sidebar() ?>
+                </div> -->
             </div>

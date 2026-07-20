@@ -78,7 +78,7 @@ function  ifti_css_js_file_calling(){
 
     //adding css based on post card alignment
     $post_card_css = '
-    .recipe-card{
+    .blog-card{
             flex-direction: row;
     }
    
@@ -92,11 +92,11 @@ function  ifti_css_js_file_calling(){
     $post_card_radius = get_theme_mod('post_cards_radius_setting');
     $post_card_css = "
     
-    .recipe-card-container{
+    .blog-card-container{
         grid-template-columns:  repeat($post_card_num_per_row, 1fr);
         gap: $post_card_row_gap" . "px;
     }
-    .recipe-card{
+    .blog-card{
         border-radius:$post_card_radius" . "px;
     }
     ";

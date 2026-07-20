@@ -21,7 +21,8 @@
     function recipe_archive_shortcode($att){
         $values = shortcode_atts(array(
             'orientation' => 'vertical',
-            'num-columns' => '1'
+            'num-columns' => '1',
+            'num-post' => '1'
         ),$att);
         $orientation = $values['orientation'];
         if(!empty($values['orientation'])){
@@ -44,8 +45,9 @@
                         $args = array(
                             'post_type' => 'recipes',
                             'post_status' => 'publish',
-                            'posts_per_page' => 3,
+                            'posts_per_page' => $values['num-post'],
                             'order' => 'ASC',
+                            'orderby' => 'date', //title, date, rand, ID
                             'paged' => $paged //need this to understand which page window to load(to count the offset for posts per page) 
                         );
 

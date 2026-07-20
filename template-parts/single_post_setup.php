@@ -50,7 +50,7 @@
 
 <aside class="recipe-page-sidebar-container">
     <?php
-        if(is_active_sidebar(get_sidebar()))
+        if(is_active_sidebar('sidebar-1'))
             get_sidebar() ?>
 </aside>
 <?php endwhile; 

@@ -239,17 +239,6 @@ function ifti_customizer_setting_calling($wp_customize){
         'sanitize_callback' => 'sanitize_text_field'
     ));
 
-    //
-    // Side bar //
-    //
-    $wp_customize->add_panel('sidebar-panel',array(
-        'title' => 'Sidebar',
-        'description' => 'All sidebars can me customized from here'
-    ));
-    if($wp_customize->get_section('sidebar-widgets-sidebar-1')){
-        $wp_customize->get_section('sidebar-widgets-sidebar-1')->panel = 'sidebar-panel';
-    }
-
     //Giving control to the user to change menu pos
     $wp_customize->add_control('post_card_layout_control', array(
         'label' => 'Post Card Layout',
@@ -318,6 +307,17 @@ function ifti_customizer_setting_calling($wp_customize){
         'settings' => 'post_cards_radius_setting',
         'type' => 'number',
     ));
+
+    //
+    // Side bar //
+    //
+    $wp_customize->add_panel('sidebar-panel',array(
+        'title' => 'Sidebar',
+        'description' => 'All sidebars can me customized from here'
+    ));
+    if($wp_customize->get_section('sidebar-widgets-sidebar-1')){
+        $wp_customize->get_section('sidebar-widgets-sidebar-1')->panel = 'sidebar-panel';
+    }
 
     /*
         sidebar activation option
