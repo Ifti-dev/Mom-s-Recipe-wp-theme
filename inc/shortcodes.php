@@ -21,10 +21,9 @@
     function recipe_archive_shortcode($att){
         $values = shortcode_atts(array(
             'orientation' => 'vertical',
-            'num-item' => '3',
-            'sidebar' => "false"
+            'num-columns' => '1'
         ),$att);
-        
+        $orientation = $values['orientation'];
         if(!empty($values['orientation'])){
             if($values['orientation'] == 'horizontal')
                 $orientation = 'flex-direction: row;';
@@ -36,8 +35,8 @@
         ?>
 
         <div class="home-content">
-            <div class="recipe-card-parent-container">
-                <div class="recipe-card-container" style="grid-template-columns:  repeat(<?php echo esc_attr($values['num-item']); ?>, 1fr);">
+            <div class="recipe-card-parent-container" style="width: 100%;">
+                <div class="recipe-card-container" style="grid-template-columns:  repeat(<?php echo esc_attr($values['num-columns']); ?>, 1fr);">
                     <!-- all recipe card goes here using js by collecting data from localstorage -->
                     <?php
                         $paged = get_query_var('paged')?get_query_var('paged'):1;
@@ -45,7 +44,7 @@
                         $args = array(
                             'post_type' => 'recipes',
                             'post_status' => 'publish',
-                            'posts_per_page' => 2,
+                            'posts_per_page' => 3,
                             'order' => 'ASC',
                             'paged' => $paged //need this to understand which page window to load(to count the offset for posts per page) 
                         );
@@ -56,7 +55,7 @@
                         if($recipe_query->have_posts()):
                             while($recipe_query->have_posts()): $recipe_query->the_post();
                     ?>
-                            <div class="recipe-card">
+                            <div class="recipe-card" style="<?php echo esc_attr($orientation)?>">
                                 <div class="recipe-card-img-container">
                                     <a href="<?php the_permalink() ?>"> <?php the_post_thumbnail("post-card-thumbnail") ?></a>
                                 </div>
@@ -80,13 +79,7 @@
                 </div>
                 <?php ifti_page_nav($recipe_query); ?>
             </div>
-            <?php if($values['sidebar'] == 'true'){ ?>
-                <div class="home-sidebar">
-                    <?php
-                        if(is_active_sidebar(get_sidebar()))
-                            get_sidebar() ?>
-                </div>
-            <?php } ?>
+            
         </div>
         <?php
         $buffering = ob_get_clean();

@@ -1,11 +1,11 @@
 
-.recipe-card-container{
+.recipe-card-container, .blog-card-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.recipe-card{
+.recipe-card, .blog-card{
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 20px rgb(139 139 139 / 34%);
     
@@ -15,28 +15,28 @@
     flex-direction: column;
 }
 
-.recipe-card-img-container{
+.recipe-card-img-container, .blog-card-img-container{
     height: 270px;
     
 }
 
-.recipe-card-img-container img{
+.recipe-card-img-container img, .blog-card-img-container img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.recipe-card-body{
+.recipe-card-body, .blog-card-body{
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
     flex-grow: 1;
 }
-.recipe-card-body h3{
+.recipe-card-body h3, .blog-card-body h3{
     font-size: 1.5rem;
 }
-.recipe-card-body a{
+.recipe-card-body a, .blog-card-body a{
     color: black;
 
     /* to keep te title within 2 lines */
@@ -45,7 +45,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-.recipe-card-body a:hover{
+.recipe-card-body a:hover, .blog-card-body a:hover{
     color: var(--primary-theme-color);
 }
 .recipe-card-user{
@@ -55,10 +55,10 @@
     margin-top: auto;
 }
 
-.recipe-card-user-fullname{
+.recipe-card-user-fullname, .blog-card-user-fullname{
     font-size: 1.1rem;
 }
-.recipe-card-user-img-cont{
+.recipe-card-user-img-cont, .blog-card-user-img-cont{
     width: 50px;
     height: 50px;
     background-color: aqua;
@@ -68,7 +68,7 @@
     align-items: center;
     flex-shrink: 0;
 }
-.recipe-card-user img{
+.recipe-card-user img, .blog-card-user img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -78,7 +78,7 @@
 /* ============
 pagination 
 ===============*/
-.recipe-card-parent-container{
+.recipe-card-parent-container, .blog-card-parent-container{
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -105,19 +105,23 @@ pagination
 .current{
     background-color: black;
 }
-
+.wp_pagenav_links{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
 /*=============
 Cards responsiveness
 ===============*/
 @media screen and (max-width: 900px) {
-    .recipe-card-container{
+    .recipe-card-container, .blog-card-container{
         grid-template-columns: repeat(2, 1fr);
     }
     
 }
 
 @media screen and (max-width: 480px){
-    .recipe-card-container{
+    .recipe-card-container, .blog-card-container{
         grid-template-columns: repeat(1, 1fr);
     }
 }
