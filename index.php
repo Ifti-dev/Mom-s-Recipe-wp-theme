@@ -20,6 +20,13 @@
             <?php get_template_part('template-parts/blog_post_cards'); ?>
             <?php get_template_part('template-parts/recipe_cards'); ?>
         </section>
+        <section class="wrapper-main">
+            <div class="slider">
+                <div><img src="<?php echo get_theme_file_uri('img/pic3.jpg') ?>" alt=""></div>
+                <div><img src="<?php echo get_theme_file_uri('img/pic2.jpg') ?>" alt=""></div>
+                <div>I am another slide.</div>
+            </div>
+        </section>
        
     </main>
 <?php get_footer() ?>
