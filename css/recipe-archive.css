@@ -125,3 +125,13 @@ Cards responsiveness
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+/* Ensure the direct child divs fill the calculated slide width */
+
+
+/* Force image slides to scale cleanly */
+.slider>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prevents images from stretching out of proportion */
+}
